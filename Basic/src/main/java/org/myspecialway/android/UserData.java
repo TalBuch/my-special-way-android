@@ -4,8 +4,8 @@ import android.arch.lifecycle.MutableLiveData;
 
 public class UserData {
 
-     MutableLiveData<String> userName;
-    MutableLiveData<String> userAvatar;
+    MutableLiveData<String> userName = new MutableLiveData<>();
+    MutableLiveData<String> userAvatar = new MutableLiveData<>();
 
     public UserData(String userName) {
         this.userName.setValue(userName);

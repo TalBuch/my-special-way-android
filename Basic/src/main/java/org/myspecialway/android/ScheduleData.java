@@ -2,8 +2,8 @@ package org.myspecialway.android;
 
 import android.arch.lifecycle.MutableLiveData;
 
-class ScheduleData {
-    MutableLiveData<String> currentScheduleName;
+public class ScheduleData {
+    MutableLiveData<String> currentScheduleName = new MutableLiveData<>();
 
     public ScheduleData(String newScheduleName) {
         this.currentScheduleName.setValue(newScheduleName);

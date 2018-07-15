@@ -27,13 +27,8 @@ public class MainScreenViewModel extends ViewModel {
         return userDataRepository.getUserData().getUserAvatar();
     }
 
-
-
-    public LiveData<String> getCurrentSheduleName() {
+    public LiveData<String> getCurrentScheduleName() {
 
         return scheduleRepository.getScheduleData().getCurrentScheduleName();
     }
-
-
-
 }

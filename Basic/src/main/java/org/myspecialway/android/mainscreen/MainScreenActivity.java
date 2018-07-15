@@ -76,7 +76,7 @@ public class MainScreenActivity extends AppCompatActivity {
                 currentScheduleNameView.setText(currentSchedule);
             }
         };
-        viewModel.getCurrentSheduleName().observe(this, currentScheduleName);
+        viewModel.getCurrentScheduleName().observe(this, currentScheduleName);
     }
 
 

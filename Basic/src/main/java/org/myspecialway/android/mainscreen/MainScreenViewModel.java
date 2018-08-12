@@ -22,7 +22,7 @@ public class MainScreenViewModel extends ViewModel {
 
     public String getUsername() {
 
-        return userSessionManager.getUserSession().getUserData().firstname + " " + userSessionManager.getUserSession().getUserData().lastname;
+        return userSessionManager.getUserData().username;
     }
 
     public String getUserAvatar() {

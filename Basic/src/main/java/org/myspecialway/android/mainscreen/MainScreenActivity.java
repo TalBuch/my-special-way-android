@@ -5,6 +5,7 @@ import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -28,6 +29,7 @@ public class MainScreenActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
+
         viewModel = ViewModelProviders.of(this).get(MainScreenViewModel.class);
         viewModel.setRepos(new ScheduleRepository((MswApplication.getInstance().getScheduleGateway())));
         usernameView = findViewById(R.id.user_display_name);
@@ -35,6 +37,7 @@ public class MainScreenActivity extends AppCompatActivity {
         currentScheduleNameView =findViewById(R.id.current_schedule_name_text);
         scheduleNavButton = findViewById(R.id.schedule_button);
         navButton = findViewById(R.id.nav_button);
+
         usernameView.setText(viewModel.getUsername());
         observeCurrentScheduleName();
         navButton.setOnClickListener(v -> {
@@ -51,7 +54,7 @@ public class MainScreenActivity extends AppCompatActivity {
         });
 
         scheduleNavButton.setOnClickListener(v -> startActivity(new Intent(MainScreenActivity.this,AgendaActivity.class)));
-        navButton.setOnClickListener(v -> startActivity(new Intent(MainScreenActivity.this,ListExamplesActivity.class)));
+
     }
 
     private void observeCurrentScheduleName() {

@@ -4,7 +4,7 @@ import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.ViewModel;
 
 import org.myspecialway.android.MswApplication;
-import org.myspecialway.android.ScheduleRepository;
+import org.myspecialway.android.schedule.ScheduleRepository;
 import org.myspecialway.android.session.UserSessionManager;
 
 public class MainScreenViewModel extends ViewModel {
@@ -22,7 +22,7 @@ public class MainScreenViewModel extends ViewModel {
 
     public String getUsername() {
 
-        return userSessionManager.getUserSession().getUserData().username;
+        return userSessionManager.getUserSession().getUserData().firstname + " " + userSessionManager.getUserSession().getUserData().lastname;
     }
 
     public String getUserAvatar() {

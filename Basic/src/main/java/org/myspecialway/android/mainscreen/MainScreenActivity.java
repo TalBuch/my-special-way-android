@@ -12,8 +12,9 @@ import android.widget.Toast;
 
 import org.myspecialway.AgendaActivity;
 import org.myspecialway.android.ListExamplesActivity;
+import org.myspecialway.android.MswApplication;
 import org.myspecialway.android.R;
-import org.myspecialway.android.ScheduleRepository;
+import org.myspecialway.android.schedule.ScheduleRepository;
 
 public class MainScreenActivity extends AppCompatActivity {
     TextView usernameView;
@@ -27,19 +28,15 @@ public class MainScreenActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
-
         viewModel = ViewModelProviders.of(this).get(MainScreenViewModel.class);
-        viewModel.setRepos(new ScheduleRepository());
-
+        viewModel.setRepos(new ScheduleRepository((MswApplication.getInstance().getScheduleGateway())));
         usernameView = findViewById(R.id.user_display_name);
         userAvatarView = findViewById(R.id.user_avatar_image);
         currentScheduleNameView =findViewById(R.id.current_schedule_name_text);
         scheduleNavButton = findViewById(R.id.schedule_button);
         navButton = findViewById(R.id.nav_button);
-
         usernameView.setText(viewModel.getUsername());
         observeCurrentScheduleName();
-
         navButton.setOnClickListener(v -> {
             //start navigation in Unity app
             try {
